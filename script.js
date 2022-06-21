@@ -1,6 +1,6 @@
 const map = new Map();
-let computerWins;
-let playerWins;
+let computerWins = 0;
+let playerWins = 0;
 
 
 initializeMap();
@@ -20,7 +20,10 @@ function game(){
         let computerMove = computerPlay();
         console.log(`player move: ${playersMove}, computer move ${computerMove}`)
         let winner = playRPS(computerMove, playersMove);
-        if (winner.charAt(0).toLowerCase() == 'd') continue;
+        if (winner.charAt(0).toLowerCase() == 'd') {
+            console.log('Round ended in draw!');
+            continue;
+        }
         else if (winner.charAt(0).toLowerCase() == 'c'){
             computerWins += 1;
             console.log('Computer wins round ' + i);
@@ -29,18 +32,19 @@ function game(){
             console.log('You win round ' + i);
         }
     }
+    console.log(computerWins + " " + playerWins);
     if (computerWins > playerWins) console.log('Computer won the most games!');
     else console.log('You won the most games!');
 }
 
 function playRPS(computerMove, playerMove){
-    if (computerMove.toLowerCase() == playerMove)
+    if (computerMove.toLowerCase() == playerMove.toLowerCase())
         return 'Draw!'
-    else if (computerMove.toLowerCase() == 'rock' && playerMove == 'scissors')
+    else if (computerMove.toLowerCase() == 'rock' && playerMove.toLowerCase() == 'scissors')
         return 'Computer wins, you lose!';
-    else if (computerMove.toLowerCase() == 'scissors' && playerMove == 'paper')
+    else if (computerMove.toLowerCase() == 'scissors' && playerMove.toLowerCase() == 'paper')
         return 'Computer wins, you lose!';
-    else if (computerMove.toLowerCase() == 'paper' && playerMove == 'rock')
+    else if (computerMove.toLowerCase() == 'paper' && playerMove.toLowerCase() == 'rock')
         return 'Computer wins, you lose!';
     else return 'You Win!';
 }
