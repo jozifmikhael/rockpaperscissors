@@ -4,6 +4,15 @@ let playerWins = 0;
 
 
 initializeMap();
+// get all moves from class="move"
+let moves = document.getElementsByClassName('move');
+// add event listener to each move (image)
+Array.from(moves).forEach( move => {
+    move.addEventListener('click', function() {
+        let parentNode = move.parentElement.getAttribute();
+    console.log(parentNode.toString());
+    })
+}) 
 // game();
 
 function computerPlay(){
