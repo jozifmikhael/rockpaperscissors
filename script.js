@@ -4,7 +4,7 @@ let playerWins = 0;
 
 
 initializeMap();
-game();
+// game();
 
 function computerPlay(){
     let move = Math.floor(Math.random() * 3);
