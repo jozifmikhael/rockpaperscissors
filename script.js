@@ -4,23 +4,29 @@ let playerWins = 0;
 
 
 initializeMap();
-// get all moves from class="move"
-let moves = document.getElementsByClassName('move');
-// add event listener to each move (image)
-Array.from(moves).forEach( move => {
-    move.addEventListener('click', function() {
-        let parentNode = move.parentElement.getAttribute();
-    console.log(parentNode.toString());
-    })
-}) 
-// game();
+
+// rock event listener
+document.getElementsByClassName('move')[0].addEventListener('click', function(event){
+    let computerMove = computerPlay();
+    console.log(playRPS(computerPlay(), event.target.parentElement.id.toString()));
+});
+// paper event listener
+document.getElementsByClassName('move')[1].addEventListener('click', function(event){
+    let computerMove = computerPlay();
+    console.log(playRPS(computerPlay(), event.target.parentElement.id.toString()));
+});
+// scissors event listener
+document.getElementsByClassName('move')[2].addEventListener('click', function(event){
+    let computerMove = computerPlay();
+    console.log(playRPS(computerPlay(), event.target.parentElement.id.toString()));
+});
 
 function computerPlay(){
     let move = Math.floor(Math.random() * 3);
 
-    if (move == 1) return "Rock";
-    else if (move == 2) return "Paper";
-    else return "Scissors";
+    if (move == 1) return "rock";
+    else if (move == 2) return "paper";
+    else return "scissors";
 }
 
 function game(){
@@ -47,13 +53,15 @@ function game(){
 }
 
 function playRPS(computerMove, playerMove){
-    if (computerMove.toLowerCase() == playerMove.toLowerCase())
+    console.log(`player move ${playerMove} computer move ${computerMove}`);
+    if (computerMove === playerMove){
         return 'Draw!'
-    else if (computerMove.toLowerCase() == 'rock' && playerMove.toLowerCase() == 'scissors')
+    }else if (computerMove === 'rock' && playerMove === 'scissors'){
         return 'Computer wins, you lose!';
-    else if (computerMove.toLowerCase() == 'scissors' && playerMove.toLowerCase() == 'paper')
+    }
+    else if (computerMove === 'scissors' && playerMove === 'paper')
         return 'Computer wins, you lose!';
-    else if (computerMove.toLowerCase() == 'paper' && playerMove.toLowerCase() == 'rock')
+    else if (computerMove === 'paper' && playerMove === 'rock')
         return 'Computer wins, you lose!';
     else return 'You Win!';
 }

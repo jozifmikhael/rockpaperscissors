@@ -23,7 +23,7 @@ body {
     text-shadow: 1px 1px magenta;
 }
 
-.img-container{
+#img-container{
     display: flex;
     flex-wrap: wrap;
     gap: 60px;
