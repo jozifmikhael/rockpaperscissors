@@ -3,7 +3,6 @@ let roundCount = 0;
 let computerWins = 0;
 let playerWins = 0;
 
-
 initializeMap();
 
 // rock event listener
@@ -30,14 +29,6 @@ document.getElementsByClassName('move')[2].addEventListener('click', function(ev
     let winner = playRPS(computerMove, playerMove);
     displayResult(winner, computerMove, playerMove);
 });
-
-function computerPlay(){
-    let move = Math.floor(Math.random() * 3);
-
-    if (move == 1) return "rock";
-    else if (move == 2) return "paper";
-    else return "scissors";
-}
 
 function displayResult(winner, computerMove, playerMove){
     let result = checkWinner(winner);
@@ -99,19 +90,6 @@ function checkWinner(winner){
     }
 }
 
-function game(){
-    for (let i = 1; i <= 5; i++){
-        let playersMove = playerMove();
-        let computerMove = computerPlay();
-        console.log(`player move: ${playersMove}, computer move ${computerMove}`)
-        let winner = playRPS(computerMove, playersMove);
-        
-    }
-    console.log(computerWins + " " + playerWins);
-    if (computerWins > playerWins) console.log('Computer won the most games!');
-    else console.log('You won the most games!');
-}
-
 function playRPS(computerMove, playerMove){
     if (computerMove === playerMove){
         return 'Draw!'
@@ -135,13 +113,10 @@ function initializeMap(){
     map.set('scissors', 3);
 }
 
+function computerPlay(){
+    let move = Math.floor(Math.random() * 3);
 
-function playerMove(){
-    let playerSelection = prompt("Enter your move");
-
-    while (!map.has(playerSelection.toLowerCase())){
-        playerSelection = prompt("Invalid, enter again");
-    }
-
-    return playerSelection.toString();
+    if (move == 1) return "rock";
+    else if (move == 2) return "paper";
+    else return "scissors";
 }
