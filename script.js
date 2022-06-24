@@ -8,17 +8,18 @@ initializeMap();
 // rock event listener
 document.getElementsByClassName('move')[0].addEventListener('click', function(event){
     let computerMove = computerPlay();
-    console.log(playRPS(computerPlay(), event.target.parentElement.id.toString()));
+    let playerMove = event.target.parentElement.id.toString();
+    console.log(playRPS(computerMove, playerMove));
 });
 // paper event listener
 document.getElementsByClassName('move')[1].addEventListener('click', function(event){
     let computerMove = computerPlay();
-    console.log(playRPS(computerPlay(), event.target.parentElement.id.toString()));
+    console.log(playRPS(computerMove, event.target.parentElement.id.toString()));
 });
 // scissors event listener
 document.getElementsByClassName('move')[2].addEventListener('click', function(event){
     let computerMove = computerPlay();
-    console.log(playRPS(computerPlay(), event.target.parentElement.id.toString()));
+    console.log(playRPS(computerMove, event.target.parentElement.id.toString()));
 });
 
 function computerPlay(){
@@ -27,6 +28,10 @@ function computerPlay(){
     if (move == 1) return "rock";
     else if (move == 2) return "paper";
     else return "scissors";
+}
+
+function displayResult(){
+
 }
 
 function game(){
