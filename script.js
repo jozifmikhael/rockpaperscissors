@@ -79,7 +79,7 @@ function createComputerOutput(computerMove){
 
 function checkWinner(winner){
     if (winner.charAt(0).toLowerCase() == 'd') {
-        return 'Round ended in draw!';
+        return 'Draw!';
     }
     else if (winner.charAt(0).toLowerCase() == 'c'){
         computerWins += 1;
