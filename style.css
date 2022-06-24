@@ -9,6 +9,27 @@ body {
     color: azure;
 }
 
+.counters{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+#player, #computer{
+    box-sizing: border-box;
+    padding: 6px 20px;
+    flex: 1;
+}
+
+#player{
+    background-color: aquamarine;
+}
+
+#computer{
+    background-color: aliceblue;
+}
+
 .title{
     margin-top: 50px;
     margin-bottom: 100px;

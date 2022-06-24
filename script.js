@@ -9,17 +9,25 @@ initializeMap();
 document.getElementsByClassName('move')[0].addEventListener('click', function(event){
     let computerMove = computerPlay();
     let playerMove = event.target.parentElement.id.toString();
-    console.log(playRPS(computerMove, playerMove));
+    // console.log(playRPS(computerMove, playerMove));
+    let winner = playRPS(computerMove, playerMove);
+    displayResult(winner, computerMove, playerMove);
 });
 // paper event listener
 document.getElementsByClassName('move')[1].addEventListener('click', function(event){
     let computerMove = computerPlay();
-    console.log(playRPS(computerMove, event.target.parentElement.id.toString()));
+    let playerMove = event.target.parentElement.id.toString();
+    // console.log(playRPS(computerMove, playerMove));
+    let winner = playRPS(computerMove, playerMove);
+    displayResult(winner, computerMove, playerMove);
 });
 // scissors event listener
 document.getElementsByClassName('move')[2].addEventListener('click', function(event){
     let computerMove = computerPlay();
-    console.log(playRPS(computerMove, event.target.parentElement.id.toString()));
+    let playerMove = event.target.parentElement.id.toString();
+    // console.log(playRPS(computerMove, playerMove));
+    let winner = playRPS(computerMove, playerMove);
+    displayResult(winner, computerMove, playerMove);
 });
 
 function computerPlay(){
@@ -30,8 +38,26 @@ function computerPlay(){
     else return "scissors";
 }
 
-function displayResult(){
+function displayResult(winner, computerMove, playerMove){
+    let result = checkWinner(winner);
+    
+    document.querySelector('#player-counter').textContent = playerWins.toString();
+    document.querySelector('#computer-counter').textContent = computerWins.toString();
+    
+    const playerOutput = document.createElement('div').cre;
+}
 
+function checkWinner(winner){
+    if (winner.charAt(0).toLowerCase() == 'd') {
+        return 'Round ended in draw!';
+    }
+    else if (winner.charAt(0).toLowerCase() == 'c'){
+        computerWins += 1;
+        return 'Computer won!';
+    } else {
+        playerWins += 1;
+        return 'You won!';
+    }
 }
 
 function game(){
@@ -40,17 +66,7 @@ function game(){
         let computerMove = computerPlay();
         console.log(`player move: ${playersMove}, computer move ${computerMove}`)
         let winner = playRPS(computerMove, playersMove);
-        if (winner.charAt(0).toLowerCase() == 'd') {
-            console.log('Round ended in draw!');
-            continue;
-        }
-        else if (winner.charAt(0).toLowerCase() == 'c'){
-            computerWins += 1;
-            console.log('Computer wins round ' + i);
-        } else {
-            playerWins += 1;
-            console.log('You win round ' + i);
-        }
+        
     }
     console.log(computerWins + " " + playerWins);
     if (computerWins > playerWins) console.log('Computer won the most games!');
@@ -58,7 +74,6 @@ function game(){
 }
 
 function playRPS(computerMove, playerMove){
-    console.log(`player move ${playerMove} computer move ${computerMove}`);
     if (computerMove === playerMove){
         return 'Draw!'
     }else if (computerMove === 'rock' && playerMove === 'scissors'){
