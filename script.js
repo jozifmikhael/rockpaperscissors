@@ -5,30 +5,45 @@ let playerWins = 0;
 
 initializeMap();
 
+// get all images using class move
+let clickableImages = document.querySelectorAll('.move');
+
+//add on click event listener to each image 
+clickableImages.forEach( (image) => {
+
+    image.addEventListener('click', event => {
+        let computerMove = computerPlay();
+        let playerMove = event.target.parentElement.id.toString();
+        // console.log(playRPS(computerMove, playerMove));
+        let winner = playRPS(computerMove, playerMove);
+        displayResult(winner, computerMove, playerMove);
+    })
+})
+
 // rock event listener
-document.getElementsByClassName('move')[0].addEventListener('click', function(event){
-    let computerMove = computerPlay();
-    let playerMove = event.target.parentElement.id.toString();
-    // console.log(playRPS(computerMove, playerMove));
-    let winner = playRPS(computerMove, playerMove);
-    displayResult(winner, computerMove, playerMove);
-});
-// paper event listener
-document.getElementsByClassName('move')[1].addEventListener('click', function(event){
-    let computerMove = computerPlay();
-    let playerMove = event.target.parentElement.id.toString();
-    // console.log(playRPS(computerMove, playerMove));
-    let winner = playRPS(computerMove, playerMove);
-    displayResult(winner, computerMove, playerMove);
-});
-// scissors event listener
-document.getElementsByClassName('move')[2].addEventListener('click', function(event){
-    let computerMove = computerPlay();
-    let playerMove = event.target.parentElement.id.toString();
-    // console.log(playRPS(computerMove, playerMove));
-    let winner = playRPS(computerMove, playerMove);
-    displayResult(winner, computerMove, playerMove);
-});
+// document.getElementsByClassName('move')[0].addEventListener('click', function(event){
+//     let computerMove = computerPlay();
+//     let playerMove = event.target.parentElement.id.toString();
+//     // console.log(playRPS(computerMove, playerMove));
+//     let winner = playRPS(computerMove, playerMove);
+//     displayResult(winner, computerMove, playerMove);
+// });
+// // paper event listener
+// document.getElementsByClassName('move')[1].addEventListener('click', function(event){
+//     let computerMove = computerPlay();
+//     let playerMove = event.target.parentElement.id.toString();
+//     // console.log(playRPS(computerMove, playerMove));
+//     let winner = playRPS(computerMove, playerMove);
+//     displayResult(winner, computerMove, playerMove);
+// });
+// // scissors event listener
+// document.getElementsByClassName('move')[2].addEventListener('click', function(event){
+//     let computerMove = computerPlay();
+//     let playerMove = event.target.parentElement.id.toString();
+//     // console.log(playRPS(computerMove, playerMove));
+//     let winner = playRPS(computerMove, playerMove);
+//     displayResult(winner, computerMove, playerMove);
+// });
 
 function displayResult(winner, computerMove, playerMove){
     let result = checkWinner(winner);
