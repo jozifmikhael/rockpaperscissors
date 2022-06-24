@@ -1,4 +1,5 @@
 const map = new Map();
+let roundCount = 0;
 let computerWins = 0;
 let playerWins = 0;
 
@@ -44,7 +45,45 @@ function displayResult(winner, computerMove, playerMove){
     document.querySelector('#player-counter').textContent = playerWins.toString();
     document.querySelector('#computer-counter').textContent = computerWins.toString();
     
-    const playerOutput = document.createElement('div').cre;
+    // parent element of player and computer output
+    let output = document.querySelector('.output');
+    let round = document.createElement('div');
+    round.classList.toggle('round');
+    roundCount++;
+    round.textContent = `Round ${roundCount}: ${result}`;
+    // player output div which will contain img and text
+    let playerOutput = createPlayerOutput(playerMove);
+    // computer output div
+    let computerOutput = createComputerOutput(computerMove);
+
+    round.appendChild(playerOutput);
+    round.appendChild(computerOutput);
+    output.insertBefore(round, output.firstChild);
+}
+
+function createPlayerOutput(playerMove){
+    const playerOutput = document.createElement('div');
+    const playerMoveImage = document.createElement('img');
+    playerMoveImage.src = `./images/${playerMove}.png`;
+    const playerMoveText = document.createElement('div');
+    playerMoveText.classList.toggle('text');
+    playerMoveText.textContent = 'You';
+    playerOutput.appendChild(playerMoveImage);
+    playerOutput.appendChild(playerMoveText);
+    return playerOutput;
+}
+
+function createComputerOutput(computerMove){
+    const computerOutput = document.createElement('div')
+    const computerMoveImage = document.createElement('img');
+    computerMoveImage.src = `./images/${computerMove}.png`;
+    computerMoveImage.classList.toggle('opponent-image');
+    const computerMoveText = document.createElement('div');
+    computerMoveText.classList.toggle('text');
+    computerMoveText.textContent = 'Computer';
+    computerOutput.appendChild(computerMoveImage);
+    computerOutput.appendChild(computerMoveText);
+    return computerOutput;
 }
 
 function checkWinner(winner){
