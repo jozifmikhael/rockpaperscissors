@@ -18,32 +18,7 @@ clickableImages.forEach( (image) => {
         let winner = playRPS(computerMove, playerMove);
         displayResult(winner, computerMove, playerMove);
     })
-})
-
-// rock event listener
-// document.getElementsByClassName('move')[0].addEventListener('click', function(event){
-//     let computerMove = computerPlay();
-//     let playerMove = event.target.parentElement.id.toString();
-//     // console.log(playRPS(computerMove, playerMove));
-//     let winner = playRPS(computerMove, playerMove);
-//     displayResult(winner, computerMove, playerMove);
-// });
-// // paper event listener
-// document.getElementsByClassName('move')[1].addEventListener('click', function(event){
-//     let computerMove = computerPlay();
-//     let playerMove = event.target.parentElement.id.toString();
-//     // console.log(playRPS(computerMove, playerMove));
-//     let winner = playRPS(computerMove, playerMove);
-//     displayResult(winner, computerMove, playerMove);
-// });
-// // scissors event listener
-// document.getElementsByClassName('move')[2].addEventListener('click', function(event){
-//     let computerMove = computerPlay();
-//     let playerMove = event.target.parentElement.id.toString();
-//     // console.log(playRPS(computerMove, playerMove));
-//     let winner = playRPS(computerMove, playerMove);
-//     displayResult(winner, computerMove, playerMove);
-// });
+});
 
 function displayResult(winner, computerMove, playerMove){
     let result = checkWinner(winner);
