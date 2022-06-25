@@ -6,7 +6,7 @@
 ## Instructions
 
 <ol>
-<li>Clone Repository or download code in zip</li>
+<li>Clone Repository or download code as zip</li>
 <li>Open index.html file</li>
 <li>Play as much rock paper scissors as you want!</li>
 </ol>
