@@ -1,0 +1,12 @@
+
+# Rock Paper Scissors Website
+
+<p>Simple rock-paper-scissors web game where you can play against a computer</p>
+
+## Instructions
+
+<ol>
+<li>Clone Repository or download code in zip</li>
+<li>Open index.html file</li>
+<li>Play as much rock paper scissors as you want!</li>
+</ol>
