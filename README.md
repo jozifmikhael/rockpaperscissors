@@ -2,6 +2,7 @@
 # Rock Paper Scissors Website
 
 <p>Simple rock-paper-scissors web game where you can play against a computer</p>
+<a href="https://jozifmikhael.github.io/rockpaperscissors/">Live Demo: https://jozifmikhael.github.io/rockpaperscissors/</a>
 
 ## Instructions
 
